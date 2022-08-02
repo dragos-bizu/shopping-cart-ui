@@ -5,6 +5,7 @@
   - [ ] Create LogIn component
   - [ ] Create fetch component
   - [ ] Make LogIn works
+  - [ ] Add React Router
   - [ ] Create dashboard component
   - [ ] Create Products component
   - [ ] Add search to Products
