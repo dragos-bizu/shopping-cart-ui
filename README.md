@@ -2,7 +2,7 @@
 
 # Tasks: 
   - [X] Initialize project
-  - [ ] Create LogIn component
+  - [X] Create LogIn component
   - [ ] Create fetch component
   - [ ] Make LogIn works
   - [ ] Add React Router
