@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Card, TextInput, Button } from "react-native-paper";
 import loginStyles from "./styles";
-import { Text, TouchableHighlight } from "react-native";
+import { Text, TouchableHighlight, View } from "react-native";
 import { useDispatch } from "react-redux";
 import ajax from "../../services/fetch";
 import { setToken } from "../DataWrapper/state/slice";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [isPress, setIsPress] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -29,10 +29,12 @@ const Login = () => {
     underlayColor: "rgba(255,255,255,0)",
     onHideUnderlay: () => setIsPress(false),
     onShowUnderlay: () => setIsPress(true),
-    onPress: () => console.log("signup"),
+    onPress: () => {
+      navigation.navigate("Dashboard");
+    },
   };
   return (
-    <>
+    <View style={loginStyles.pageStyle}>
       <Card style={loginStyles.cardContent}>
         <Card.Title title="LogIn" />
         <Card.Content>
@@ -56,7 +58,7 @@ const Login = () => {
             style={loginStyles.button}
             onPress={loginAction}
           >
-            LogIn
+            <Text style={{ color: "#ffffff" }}>LOGIN</Text>
           </Button>
           <TouchableHighlight {...signupLink}>
             <Text
@@ -69,7 +71,7 @@ const Login = () => {
           </TouchableHighlight>
         </Card.Content>
       </Card>
-    </>
+    </View>
   );
 };
 
