@@ -30,7 +30,7 @@ const Login = ({ navigation }) => {
     onHideUnderlay: () => setIsPress(false),
     onShowUnderlay: () => setIsPress(true),
     onPress: () => {
-      navigation.navigate("Dashboard");
+      navigation.navigate("Shopping Cart");
     },
   };
   return (

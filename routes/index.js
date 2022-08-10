@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../components/Login";
-import Dashboard from "../components/Dashboard";
+import BottomMenu from "../components/BottomMenu";
 
 const headerOptions = {
   headerStyle: { backgroundColor: "#3498db" },
@@ -15,8 +15,8 @@ const routes = () => {
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} options={headerOptions} />
       <Stack.Screen
-        name="Dashboard"
-        component={Dashboard}
+        name="Shopping Cart"
+        component={BottomMenu}
         options={headerOptions}
       />
     </Stack.Navigator>
