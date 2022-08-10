@@ -9,6 +9,7 @@ const loginStyles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     width: 250,
+    marginTop: "35%",
   },
   button: {
     marginTop: 15,
@@ -22,6 +23,13 @@ const loginStyles = StyleSheet.create({
     marginTop: 10,
     color: "#4b4bfd",
     textDecorationLine: "none",
+  },
+  pageStyle: {
+    flex: 1,
+    flexGrow: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    margin: 0,
   },
 });
 
