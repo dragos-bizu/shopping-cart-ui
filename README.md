@@ -7,7 +7,7 @@
   - [X] Make LogIn works
   - [X] Add React Navigation
   - [X] Create Products component
-  - [ ] Add search to Products
+  - [X] Add search to Products
   - [ ] Create Cart component
   - [ ] Button Add to Cart on products
   - [ ] Button Remove from cart
