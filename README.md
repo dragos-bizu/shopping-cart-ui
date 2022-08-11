@@ -3,11 +3,10 @@
 # Tasks: 
   - [X] Initialize project
   - [X] Create LogIn component
-  - [ ] Create fetch component
-  - [ ] Make LogIn works
-  - [ ] Add React Router
-  - [ ] Create dashboard component
-  - [ ] Create Products component
+  - [X] Create fetch component
+  - [X] Make LogIn works
+  - [X] Add React Navigation
+  - [X] Create Products component
   - [ ] Add search to Products
   - [ ] Create Cart component
   - [ ] Button Add to Cart on products
