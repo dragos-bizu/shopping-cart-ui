@@ -9,7 +9,7 @@
   - [X] Create Products component
   - [X] Add search to Products
   - [ ] Create Cart component
-  - [ ] Button Add to Cart on products
+  - [X] Button Add to Cart on products
   - [ ] Button Remove from cart
   - [ ] Checkout button
   - [ ] Orders component
