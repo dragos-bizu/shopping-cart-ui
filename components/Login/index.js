@@ -19,9 +19,15 @@ const Login = ({ navigation }) => {
       username: username,
       password: password,
     };
-    ajax({ url, method, body }).then((response) => {
-      dispatch(setToken(response.token));
-    });
+    ajax({ url, method, body })
+      .then((response) => {
+        dispatch(setToken(response.token));
+        navigation.navigate("Shopping Cart");
+      })
+      .catch(async (error) => {
+        const errorBody = await error.json();
+        console.log(errorBody);
+      });
   };
 
   const signupLink = {
