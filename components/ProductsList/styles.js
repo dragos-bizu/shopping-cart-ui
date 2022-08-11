@@ -10,6 +10,17 @@ const productsListStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  searchStyle: {
+    padding: 10,
+    flexDirection: "row",
+  },
+  searchInputStyle: {
+    height: 40,
+    width: "77%",
+  },
+  searchButtonStyle: {
+    height: "100%",
+  },
 });
 
 export default productsListStyles;

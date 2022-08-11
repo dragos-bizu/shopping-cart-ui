@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Product from "./components/Product";
 import { ScrollView, View } from "react-native";
-import { Text, Button } from "react-native-paper";
+import { Text, Button, TextInput } from "react-native-paper";
 import ajax from "../../services/fetch";
 import DialogBox from "../DialogBox";
 import productsListStyles from "./styles";
@@ -15,6 +15,7 @@ const ProductsList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [url, setUrl] = useState("/api/products/all/");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const showDialog = () => setVisible(true);
 
@@ -50,9 +51,25 @@ const ProductsList = () => {
     });
   };
 
+  const searchProducts = () => {
+    setUrl(`/api/products/all/?search=${searchTerm}`);
+  };
   return (
     <>
       <ScrollView ref={scrollRef}>
+        <View style={productsListStyles.searchStyle}>
+          <TextInput
+            placeholder={"Search..."}
+            style={productsListStyles.searchInputStyle}
+            onChangeText={(text) => setSearchTerm(text)}
+          />
+          <Button
+            onPress={searchProducts}
+            style={productsListStyles.searchButtonStyle}
+          >
+            SEARCH
+          </Button>
+        </View>
         {products.map((product, index) => (
           <Product
             product={product}
