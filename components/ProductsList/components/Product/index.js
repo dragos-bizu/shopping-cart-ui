@@ -1,34 +1,40 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Card, Divider, IconButton, Paragraph, Text } from "react-native-paper";
 import productStyles from "./styles";
-import { TouchableHighlight } from "react-native";
 
-const Product = ({ product }) => {
-  const productDetailsLink = {
-    activeOpacity: 0.75,
-    underlayColor: "rgba(255,255,255,0)",
-    onPress: () => {
-      console.log(product.id);
-    },
+const Product = ({ product, showDialog, setSizes, setProductId }) => {
+  const addToCart = () => {
+    setSizes(product.get_sizes);
+    setProductId(product.id);
+    showDialog();
   };
 
   return (
-    <TouchableHighlight {...productDetailsLink}>
-      <Card style={productStyles.cardStyle}>
-        <Card.Title title={product.name} style={productStyles.cardTitleStyle} />
-        <Divider />
-        <Card.Content style={productStyles.cardContentStyle}>
-          <Paragraph>
-            <Text style={productStyles.textStyle}>Price:</Text>
-            {product.price}$
-          </Paragraph>
-          <Paragraph>
-            <Text style={productStyles.textStyle}>Description: </Text>
-            {product.description}
-          </Paragraph>
-        </Card.Content>
-      </Card>
-    </TouchableHighlight>
+    <Card style={productStyles.cardStyle}>
+      <Card.Title title={product.name} style={productStyles.cardTitleStyle} />
+      <Divider />
+      <Card.Content style={productStyles.cardContentStyle}>
+        <Paragraph>
+          <Text style={productStyles.textStyle}>Price:</Text>
+          {product.price}$
+        </Paragraph>
+        <Paragraph>
+          <Text style={productStyles.textStyle}>Description: </Text>
+          {product.description}
+        </Paragraph>
+        <Paragraph>
+          <Text style={productStyles.textStyle}>Delivery Time: </Text>
+          {product.delivery_time_days} days
+        </Paragraph>
+      </Card.Content>
+      <Card.Actions style={productStyles.cardActionsStyle}>
+        <IconButton
+          icon="cart-plus"
+          onPress={addToCart}
+          style={productStyles.iconButtonStyle}
+        />
+      </Card.Actions>
+    </Card>
   );
 };
 

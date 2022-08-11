@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, TextInput, Button } from "react-native-paper";
 import loginStyles from "./styles";
 import { Text, TouchableHighlight, View } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ajax from "../../services/fetch";
 import { setToken } from "../DataWrapper/state/slice";
 
