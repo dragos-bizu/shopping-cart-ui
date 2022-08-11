@@ -1,1 +1,2 @@
-export const APIPath = "http://192.168.101.104:8000";
+export const APIPath =
+  "http://shoppingcartservice-env.eba-guek2msx.us-west-2.elasticbeanstalk.com";

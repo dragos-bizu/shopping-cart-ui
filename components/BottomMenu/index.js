@@ -2,8 +2,9 @@ import * as React from "react";
 import { BottomNavigation, Text } from "react-native-paper";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import ProductsList from "../ProductsList";
 
-const ProductsRoute = () => <Text>Products</Text>;
+const ProductsRoute = () => <ProductsList />;
 
 const CartRoute = () => <Text>Cart</Text>;
 

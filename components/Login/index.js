@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, TextInput, Button } from "react-native-paper";
 import loginStyles from "./styles";
 import { Text, TouchableHighlight, View } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ajax from "../../services/fetch";
 import { setToken } from "../DataWrapper/state/slice";
 
@@ -19,9 +19,15 @@ const Login = ({ navigation }) => {
       username: username,
       password: password,
     };
-    ajax({ url, method, body }).then((response) => {
-      dispatch(setToken(response.token));
-    });
+    ajax({ url, method, body })
+      .then((response) => {
+        dispatch(setToken(response.token));
+        navigation.navigate("Shopping Cart");
+      })
+      .catch(async (error) => {
+        const errorBody = await error.json();
+        console.log(errorBody);
+      });
   };
 
   const signupLink = {
