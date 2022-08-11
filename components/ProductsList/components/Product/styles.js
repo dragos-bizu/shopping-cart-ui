@@ -20,6 +20,21 @@ const productStyles = StyleSheet.create({
   iconButtonStyle: {
     backgroundColor: "rgba(52,152,219,0.5)",
   },
+  cardTitleTextStyle: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingTop: 7,
+  },
+  productNameStyle: {
+    fontWeight: "bold",
+    fontSize: 17,
+  },
+  deliveryTextStyle: {
+    fontWeight: "bold",
+    color: "#fff",
+  },
 });
 
 export default productStyles;

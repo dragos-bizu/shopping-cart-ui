@@ -1,41 +1,78 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Product from "./components/Product";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
+import { Text, Button } from "react-native-paper";
 import ajax from "../../services/fetch";
 import DialogBox from "../DialogBox";
+import productsListStyles from "./styles";
 
 const ProductsList = () => {
+  const scrollRef = useRef();
   const [products, setProducts] = useState([]);
   const [visible, setVisible] = useState(false);
   const [sizes, setSizes] = useState({});
   const [productId, setProductId] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [url, setUrl] = useState("/api/products/all/");
 
   const showDialog = () => setVisible(true);
 
   const hideDialog = () => setVisible(false);
 
   const requestProducts = {
-    url: "/api/products/all",
+    url: url,
     method: "GET",
     body: null,
   };
+  useEffect(() => {
+    ajax(requestProducts).then((response) => {
+      setProducts(response.results);
+      setTotalPages(Math.ceil(response.count / 10));
+    });
+  }, [url]);
 
-  ajax(requestProducts).then((response) => {
-    setProducts(response.results);
-  });
+  const prevPage = () => {
+    setCurrentPage(currentPage - 1);
+    setUrl(`/api/products/all/?page=${currentPage - 1}`);
+    scrollRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });
+  };
+
+  const nextPage = () => {
+    setCurrentPage(currentPage + 1);
+    setUrl(`/api/products/all/?page=${currentPage + 1}`);
+    scrollRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });
+  };
 
   return (
     <>
-      <ScrollView>
-        {products.map((result, index) => (
+      <ScrollView ref={scrollRef}>
+        {products.map((product, index) => (
           <Product
-            product={result}
+            product={product}
             key={index}
             showDialog={showDialog}
             setSizes={setSizes}
             setProductId={setProductId}
           />
         ))}
+        <View style={productsListStyles.pageBottomStyle}>
+          <Button disabled={currentPage === 1} onPress={prevPage}>
+            Prev
+          </Button>
+          <Text style={productsListStyles.pageTextStyle}>
+            Page {currentPage}/{totalPages}
+          </Text>
+          <Button disabled={currentPage === totalPages} onPress={nextPage}>
+            Next
+          </Button>
+        </View>
       </ScrollView>
       <DialogBox
         visible={visible}
