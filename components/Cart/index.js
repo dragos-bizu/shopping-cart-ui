@@ -6,11 +6,13 @@ import { useSelector } from "react-redux";
 import cartStyles from "./styles";
 import CartItem from "./CartItem";
 import RemoveFromCart from "./RemoveFromCart";
+import CheckoutCart from "./CheckoutCart";
 
 const Cart = ({ index }) => {
   const scrollRef = useRef();
   const [items, setItems] = useState([]);
   const [visible, setVisible] = useState(false);
+  const [visibleCheckout, setVisibleCheckout] = useState(false);
   const [cartItemId, setCartItemId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -21,6 +23,10 @@ const Cart = ({ index }) => {
   const showDialog = () => setVisible(true);
 
   const hideDialog = () => setVisible(false);
+
+  const showCheckoutDialog = () => setVisibleCheckout(true);
+
+  const hideCheckoutDialog = () => setVisibleCheckout(false);
 
   const requestProducts = {
     url: url,
@@ -34,7 +40,7 @@ const Cart = ({ index }) => {
       setTotalPrice(response.results.total_price);
       setTotalPages(Math.ceil(response.count / 10));
     });
-  }, [url, index, visible]);
+  }, [url, index, visible, visibleCheckout]);
 
   const prevPage = () => {
     setCurrentPage(currentPage - 1);
@@ -65,9 +71,18 @@ const Cart = ({ index }) => {
             setCartItemId={setCartItemId}
           />
         ))}
-        <Text style={cartStyles.totalPriceTextStyle}>
-          Cart Total Price: {totalPrice}$
-        </Text>
+        <View style={cartStyles.checkoutStyle}>
+          <Text style={cartStyles.totalPriceTextStyle}>
+            Cart Total Price: {totalPrice}$
+          </Text>
+          <Button
+            mode="contained"
+            style={cartStyles.checkoutButtonStyle}
+            onPress={showCheckoutDialog}
+          >
+            <Text style={{ color: "#ffffff" }}>CHECKOUT</Text>
+          </Button>
+        </View>
         <View style={cartStyles.pageBottomStyle}>
           <Button disabled={currentPage === 1} onPress={prevPage}>
             Prev
@@ -85,6 +100,7 @@ const Cart = ({ index }) => {
         hideDialog={hideDialog}
         cartItemId={cartItemId}
       />
+      <CheckoutCart visible={visibleCheckout} hideDialog={hideCheckoutDialog} />
     </>
   );
 };

@@ -12,11 +12,17 @@ const cartStyles = StyleSheet.create({
   totalPriceTextStyle: {
     fontWeight: "bold",
     fontSize: 17,
-    margin: 10,
-    width: "95%",
     textAlign: "center",
+  },
+  checkoutStyle: {
     backgroundColor: "rgba(52,152,219,0.5)",
     padding: 15,
+    width: "95%",
+    margin: 10,
+  },
+  checkoutButtonStyle: {
+    margin: 10,
+    backgroundColor: "#00b400",
   },
 });
 
