@@ -3,8 +3,8 @@ import Product from "./components/Product";
 import { ScrollView, View } from "react-native";
 import { Text, Button, TextInput } from "react-native-paper";
 import ajax from "../../services/fetch";
-import DialogBox from "../DialogBox";
 import productsListStyles from "./styles";
+import AddToCart from "./components/AddToCart";
 
 const ProductsList = () => {
   const scrollRef = useRef();
@@ -91,9 +91,8 @@ const ProductsList = () => {
           </Button>
         </View>
       </ScrollView>
-      <DialogBox
+      <AddToCart
         visible={visible}
-        setVisible={setVisible}
         hideDialog={hideDialog}
         sizes={sizes}
         productId={productId}

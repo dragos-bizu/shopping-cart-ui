@@ -33,7 +33,7 @@ const Product = ({ product, showDialog, setSizes, setProductId }) => {
           {product.description}
         </Paragraph>
         <Paragraph>
-          <Text style={productStyles.textStyle}>Price:</Text>
+          <Text style={productStyles.textStyle}>Price: </Text>
           {product.price}$
         </Paragraph>
       </Card.Content>
