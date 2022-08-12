@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, Divider, IconButton, Paragraph, Text } from "react-native-paper";
 import productStyles from "./styles";
 import { View } from "react-native";

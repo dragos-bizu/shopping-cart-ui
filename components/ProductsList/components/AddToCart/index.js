@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Dialog, Divider, RadioButton, Text } from "react-native-paper";
 import { View } from "react-native";
-import dialogStyles from "../../../DialogBox/styles";
+import addToCartStyles from "./styles";
 import { useSelector } from "react-redux";
 import ajax from "../../../../services/fetch";
 import DialogBox from "../../../DialogBox";
@@ -47,13 +47,13 @@ const AddToCart = ({ visible, hideDialog, sizes, productId }) => {
           <Divider />
           <RadioButton.Item
             label={
-              <View style={dialogStyles.radioButtonLabelStyle}>
+              <View style={addToCartStyles.radioButtonLabelStyle}>
                 <Text>XS</Text>
                 <Text
                   style={
                     sizes.XS
-                      ? dialogStyles.textInStockStyle
-                      : dialogStyles.textOutOfStockStyle
+                      ? addToCartStyles.textInStockStyle
+                      : addToCartStyles.textOutOfStockStyle
                   }
                 >
                   {sizes.XS ? "In Stock" : "Out of Stock"}
@@ -66,13 +66,13 @@ const AddToCart = ({ visible, hideDialog, sizes, productId }) => {
           <Divider />
           <RadioButton.Item
             label={
-              <View style={dialogStyles.radioButtonLabelStyle}>
+              <View style={addToCartStyles.radioButtonLabelStyle}>
                 <Text>S</Text>
                 <Text
                   style={
                     sizes.S
-                      ? dialogStyles.textInStockStyle
-                      : dialogStyles.textOutOfStockStyle
+                      ? addToCartStyles.textInStockStyle
+                      : addToCartStyles.textOutOfStockStyle
                   }
                 >
                   {sizes.S ? "In Stock" : "Out of Stock"}
@@ -85,13 +85,13 @@ const AddToCart = ({ visible, hideDialog, sizes, productId }) => {
           <Divider />
           <RadioButton.Item
             label={
-              <View style={dialogStyles.radioButtonLabelStyle}>
+              <View style={addToCartStyles.radioButtonLabelStyle}>
                 <Text>M</Text>
                 <Text
                   style={
                     sizes.M
-                      ? dialogStyles.textInStockStyle
-                      : dialogStyles.textOutOfStockStyle
+                      ? addToCartStyles.textInStockStyle
+                      : addToCartStyles.textOutOfStockStyle
                   }
                 >
                   {sizes.M ? "In Stock" : "Out of Stock"}
@@ -104,13 +104,13 @@ const AddToCart = ({ visible, hideDialog, sizes, productId }) => {
           <Divider />
           <RadioButton.Item
             label={
-              <View style={dialogStyles.radioButtonLabelStyle}>
+              <View style={addToCartStyles.radioButtonLabelStyle}>
                 <Text>L</Text>
                 <Text
                   style={
                     sizes.L
-                      ? dialogStyles.textInStockStyle
-                      : dialogStyles.textOutOfStockStyle
+                      ? addToCartStyles.textInStockStyle
+                      : addToCartStyles.textOutOfStockStyle
                   }
                 >
                   {sizes.L ? "In Stock" : "Out of Stock"}
@@ -123,13 +123,13 @@ const AddToCart = ({ visible, hideDialog, sizes, productId }) => {
           <Divider />
           <RadioButton.Item
             label={
-              <View style={dialogStyles.radioButtonLabelStyle}>
+              <View style={addToCartStyles.radioButtonLabelStyle}>
                 <Text>XL</Text>
                 <Text
                   style={
                     sizes.XL
-                      ? dialogStyles.textInStockStyle
-                      : dialogStyles.textOutOfStockStyle
+                      ? addToCartStyles.textInStockStyle
+                      : addToCartStyles.textOutOfStockStyle
                   }
                 >
                   {sizes.XL ? "In Stock" : "Out of Stock"}
