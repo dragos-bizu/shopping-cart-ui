@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Dialog, Paragraph } from "react-native-paper";
 import { useSelector } from "react-redux";
-import ajax from "../../../services/fetch";
-import DialogBox from "../../DialogBox";
+import ajax from "../../../../services/fetch";
+import DialogBox from "../../../DialogBox";
 
 const CheckoutCart = ({ visible, hideDialog }) => {
   const token = useSelector((state) => state.data.token);

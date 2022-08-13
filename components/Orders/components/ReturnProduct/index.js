@@ -1,22 +1,22 @@
 import React from "react";
 import { Button, Dialog, Paragraph } from "react-native-paper";
 import { useSelector } from "react-redux";
-import ajax from "../../../services/fetch";
-import DialogBox from "../../DialogBox";
+import ajax from "../../../../services/fetch";
+import DialogBox from "../../../DialogBox";
 
-const RemoveFromCart = ({ visible, hideDialog, cartItemId }) => {
+const RemoveFromCart = ({ visible, hideDialog, orderItemId }) => {
   const token = useSelector((state) => state.data.token);
 
-  const removeFromCart = () => {
-    const requestDeleteCart = {
-      url: "/api/cart/add/",
-      method: "DELETE",
+  const returnProduct = () => {
+    const requestReturnCart = {
+      url: "/api/order/return/",
+      method: "POST",
       body: {
-        cart_item_id: cartItemId,
+        order_item_id: orderItemId,
       },
       token: token,
     };
-    ajax(requestDeleteCart)
+    ajax(requestReturnCart)
       .then((response) => {
         console.log(response);
         hideDialog();
@@ -31,15 +31,13 @@ const RemoveFromCart = ({ visible, hideDialog, cartItemId }) => {
     <DialogBox
       visible={visible}
       hideDialog={hideDialog}
-      title={"Remove from Cart"}
+      title={"Return a Product"}
     >
       <Dialog.Content>
-        <Paragraph>
-          Are you sure you want to remove this item from cart?
-        </Paragraph>
+        <Paragraph>Are you sure you want to return this product?</Paragraph>
       </Dialog.Content>
       <Dialog.Actions>
-        <Button onPress={removeFromCart}>Remove from Cart</Button>
+        <Button onPress={returnProduct}>Return Product</Button>
         <Button onPress={hideDialog}>Cancel</Button>
       </Dialog.Actions>
     </DialogBox>

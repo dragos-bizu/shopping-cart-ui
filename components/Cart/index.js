@@ -4,9 +4,9 @@ import { Text, Button, TextInput } from "react-native-paper";
 import ajax from "../../services/fetch";
 import { useSelector } from "react-redux";
 import cartStyles from "./styles";
-import RemoveFromCart from "./RemoveFromCart";
-import CheckoutCart from "./CheckoutCart";
-import CartItem from "./CartItem";
+import CartItem from "./components/CartItem";
+import RemoveFromCart from "./components/RemoveFromCart";
+import CheckoutCart from "./components/CheckoutCart";
 
 const Cart = ({ index }) => {
   const scrollRef = useRef();
