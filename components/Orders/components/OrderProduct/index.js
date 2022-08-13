@@ -1,11 +1,17 @@
 import React from "react";
-import { Card, Divider, Paragraph, Text } from "react-native-paper";
+import { Card, Divider, IconButton, Paragraph, Text } from "react-native-paper";
 import orderProductStyles from "./styles";
 import { View } from "react-native";
+import Fontisto from "react-native-vector-icons/Fontisto";
 
-const OrderProduct = ({ product }) => {
+const OrderProduct = ({ product, showDialog, setOrderItemId }) => {
   const orderProduct = product.product;
   const productSize = product.product_size;
+
+  const returnProduct = () => {
+    setOrderItemId(product.id);
+    showDialog();
+  };
 
   return (
     <Card style={orderProductStyles.cardStyle}>
@@ -46,6 +52,13 @@ const OrderProduct = ({ product }) => {
           </Text>
         </Paragraph>
       </Card.Content>
+      <Card.Actions style={orderProductStyles.cardActionsStyle}>
+        <IconButton
+          icon={(props) => <Fontisto {...props} name={"arrow-return-left"} />}
+          color="#ff0000"
+          onPress={returnProduct}
+        />
+      </Card.Actions>
     </Card>
   );
 };

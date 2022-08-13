@@ -12,7 +12,9 @@ const OrderItem = ({ orderItem }) => {
     activeOpacity: 0.5,
     underlayColor: "rgba(255,255,255,0)",
     onPress: () => {
-      navigation.navigate("Order Details", { orderItem: orderItem });
+      navigation.navigate("Order Details", {
+        orderItem: orderItem,
+      });
     },
   };
   return (
