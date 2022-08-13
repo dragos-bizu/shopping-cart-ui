@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, Divider, IconButton, Paragraph, Text } from "react-native-paper";
 import productStyles from "./styles";
 import { View } from "react-native";
@@ -33,7 +33,7 @@ const Product = ({ product, showDialog, setSizes, setProductId }) => {
           {product.description}
         </Paragraph>
         <Paragraph>
-          <Text style={productStyles.textStyle}>Price:</Text>
+          <Text style={productStyles.textStyle}>Price: </Text>
           {product.price}$
         </Paragraph>
       </Card.Content>

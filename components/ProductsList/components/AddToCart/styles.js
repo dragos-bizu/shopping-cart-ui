@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const dialogStyles = StyleSheet.create({
+const addToCartStyles = StyleSheet.create({
   radioButtonLabelStyle: {
     flexDirection: "row",
     width: "100%",
@@ -16,4 +16,4 @@ const dialogStyles = StyleSheet.create({
   },
 });
 
-export default dialogStyles;
+export default addToCartStyles;

@@ -3,16 +3,17 @@ import { BottomNavigation, Text } from "react-native-paper";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import ProductsList from "../ProductsList";
+import Cart from "../Cart";
 
 const ProductsRoute = () => <ProductsList />;
 
-const CartRoute = () => <Text>Cart</Text>;
+const CartRoute = ({ route }) => <Cart index={route.props} />;
 
 const OrdersRoute = () => <Text>Orders</Text>;
 
 const ProfileRoute = () => <Text>Profile</Text>;
 
-const BottomMenu = (props) => {
+const BottomMenu = () => {
   const [index, setIndex] = React.useState(0);
   const routes = [
     {
@@ -24,6 +25,7 @@ const BottomMenu = (props) => {
       key: "cart",
       title: "Cart",
       icon: (props) => <FontAwesome {...props} name="shopping-cart" />,
+      props: index,
     },
     {
       key: "orders",
