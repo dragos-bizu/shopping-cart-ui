@@ -1,19 +1,17 @@
 import React from "react";
 import { Button, Dialog, Paragraph } from "react-native-paper";
 import { useSelector } from "react-redux";
-import ajax from "../../../services/fetch";
-import DialogBox from "../../DialogBox";
+import ajax from "../../../../services/fetch";
+import DialogBox from "../../../DialogBox";
 
-const RemoveFromCart = ({ visible, hideDialog, cartItemId }) => {
+const CheckoutCart = ({ visible, hideDialog }) => {
   const token = useSelector((state) => state.data.token);
 
-  const removeFromCart = () => {
+  const checkoutCart = () => {
     const requestDeleteCart = {
-      url: "/api/cart/add/",
-      method: "DELETE",
-      body: {
-        cart_item_id: cartItemId,
-      },
+      url: "/api/cart/checkout/",
+      method: "POST",
+      body: null,
       token: token,
     };
     ajax(requestDeleteCart)
@@ -31,19 +29,17 @@ const RemoveFromCart = ({ visible, hideDialog, cartItemId }) => {
     <DialogBox
       visible={visible}
       hideDialog={hideDialog}
-      title={"Remove from Cart"}
+      title={"Cart Checkout"}
     >
       <Dialog.Content>
-        <Paragraph>
-          Are you sure you want to remove this item from cart?
-        </Paragraph>
+        <Paragraph>Are you sure you want to place this order?</Paragraph>
       </Dialog.Content>
       <Dialog.Actions>
-        <Button onPress={removeFromCart}>Remove from Cart</Button>
+        <Button onPress={checkoutCart}>CHECKOUT</Button>
         <Button onPress={hideDialog}>Cancel</Button>
       </Dialog.Actions>
     </DialogBox>
   );
 };
 
-export default RemoveFromCart;
+export default CheckoutCart;

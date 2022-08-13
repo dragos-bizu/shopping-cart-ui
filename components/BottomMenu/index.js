@@ -4,12 +4,13 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import ProductsList from "../ProductsList";
 import Cart from "../Cart";
+import Orders from "../Orders";
 
 const ProductsRoute = () => <ProductsList />;
 
 const CartRoute = ({ route }) => <Cart index={route.props} />;
 
-const OrdersRoute = () => <Text>Orders</Text>;
+const OrdersRoute = ({ route }) => <Orders index={route.props} />;
 
 const ProfileRoute = () => <Text>Profile</Text>;
 
@@ -31,6 +32,7 @@ const BottomMenu = () => {
       key: "orders",
       title: "Orders",
       icon: (props) => <FontAwesome5 {...props} name="clipboard-list" />,
+      props: index,
     },
     {
       key: "profile",
