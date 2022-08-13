@@ -63,37 +63,45 @@ const Cart = ({ index }) => {
   return (
     <>
       <ScrollView ref={scrollRef}>
-        {items.map((item, index) => (
-          <CartItem
-            item={item}
-            key={index}
-            showDialog={showDialog}
-            setCartItemId={setCartItemId}
-          />
-        ))}
-        <View style={cartStyles.checkoutStyle}>
-          <Text style={cartStyles.totalPriceTextStyle}>
-            Cart Total Price: {totalPrice}$
-          </Text>
-          <Button
-            mode="contained"
-            style={cartStyles.checkoutButtonStyle}
-            onPress={showCheckoutDialog}
-          >
-            <Text style={{ color: "#ffffff" }}>CHECKOUT</Text>
-          </Button>
-        </View>
-        <View style={cartStyles.pageBottomStyle}>
-          <Button disabled={currentPage === 1} onPress={prevPage}>
-            Prev
-          </Button>
-          <Text style={cartStyles.pageTextStyle}>
-            Page {currentPage}/{totalPages}
-          </Text>
-          <Button disabled={currentPage === totalPages} onPress={nextPage}>
-            Next
-          </Button>
-        </View>
+        {items.length ? (
+          items.map((item, index) => (
+            <CartItem
+              item={item}
+              key={index}
+              showDialog={showDialog}
+              setCartItemId={setCartItemId}
+            />
+          ))
+        ) : (
+          <Text style={cartStyles.emptyCartTextStyle}>Your cart is empty!</Text>
+        )}
+        {items.length ? (
+          <View style={cartStyles.checkoutStyle}>
+            <Text style={cartStyles.totalPriceTextStyle}>
+              Cart Total Price: {totalPrice}$
+            </Text>
+            <Button
+              mode="contained"
+              style={cartStyles.checkoutButtonStyle}
+              onPress={showCheckoutDialog}
+            >
+              <Text style={{ color: "#ffffff" }}>CHECKOUT</Text>
+            </Button>
+          </View>
+        ) : null}
+        {items.length ? (
+          <View style={cartStyles.pageBottomStyle}>
+            <Button disabled={currentPage === 1} onPress={prevPage}>
+              Prev
+            </Button>
+            <Text style={cartStyles.pageTextStyle}>
+              Page {currentPage}/{totalPages}
+            </Text>
+            <Button disabled={currentPage === totalPages} onPress={nextPage}>
+              Next
+            </Button>
+          </View>
+        ) : null}
       </ScrollView>
       <RemoveFromCart
         visible={visible}

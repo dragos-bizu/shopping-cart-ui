@@ -24,6 +24,14 @@ const cartStyles = StyleSheet.create({
     margin: 10,
     backgroundColor: "#00b400",
   },
+  emptyCartTextStyle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "rgba(0,0,0,0.50)",
+    textAlign: "center",
+    margin: 20,
+    marginTop: "75%",
+  },
 });
 
 export default cartStyles;
