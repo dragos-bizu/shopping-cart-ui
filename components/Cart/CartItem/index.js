@@ -3,7 +3,7 @@ import { Card, Divider, IconButton, Paragraph, Text } from "react-native-paper";
 import cartItemStyles from "./styles";
 import { View } from "react-native";
 
-const Product = ({ item, showDialog, setCartItemId }) => {
+const CartItem = ({ item, showDialog, setCartItemId }) => {
   const product = item.product;
   const productSize = item.product_size;
 
@@ -56,4 +56,4 @@ const Product = ({ item, showDialog, setCartItemId }) => {
   );
 };
 
-export default Product;
+export default CartItem;
