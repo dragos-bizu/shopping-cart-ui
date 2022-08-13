@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, TextInput, Button } from "react-native-paper";
 import loginStyles from "./styles";
-import { Text, TouchableHighlight, View } from "react-native";
+import { Alert, Text, TouchableHighlight, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import ajax from "../../services/fetch";
 import { setToken } from "../DataWrapper/state/slice";
@@ -36,7 +36,18 @@ const Login = ({ navigation }) => {
     onHideUnderlay: () => setIsPress(false),
     onShowUnderlay: () => setIsPress(true),
     onPress: () => {
-      navigation.navigate("Shopping Cart");
+      Alert.alert(
+        "Sign Up",
+        "You cannot sign up yet. Please contact the administrator.",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel",
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") },
+        ]
+      );
     },
   };
   return (
