@@ -8,9 +8,9 @@
   - [X] Add React Navigation
   - [X] Create Products component
   - [X] Add search to Products
-  - [ ] Create Cart component
+  - [X] Create Cart component
   - [X] Button Add to Cart on products
-  - [ ] Button Remove from cart
-  - [ ] Checkout button
-  - [ ] Orders component
-  - [ ] Button return a product
+  - [X] Button Remove from cart
+  - [X] Checkout button
+  - [X] Orders component
+  - [X] Button return a product
